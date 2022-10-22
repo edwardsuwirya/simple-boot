@@ -6,6 +6,7 @@ import com.enigmacamp.hellospring.repository.CourseTypeRepository;
 import com.enigmacamp.hellospring.repository.projection.CourseTypeView;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile("api")
 public class CourseTypeServiceImpl implements CourseTypeService {
     private CourseTypeRepository courseTypeRepository;
 

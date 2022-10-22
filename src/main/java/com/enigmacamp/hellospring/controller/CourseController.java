@@ -9,6 +9,7 @@ import com.enigmacamp.hellospring.util.validation.Uuid;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@Profile("api")
 @RestController
 @RequestMapping("/courses")
 @Validated // Kalo ada pathVariable/RequestParameter validation

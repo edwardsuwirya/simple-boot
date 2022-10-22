@@ -19,6 +19,17 @@ public class CourseInfo {
     @Column(name = "level", nullable = false, length = 10)
     private String level;
 
+    @OneToOne(mappedBy = "courseInfo")
+    private Course mstCourses;
+
+    public Course getMstCourses() {
+        return mstCourses;
+    }
+
+    public void setMstCourses(Course mstCourses) {
+        this.mstCourses = mstCourses;
+    }
+
 
     public String getCourseInfoId() {
         return courseInfoId;

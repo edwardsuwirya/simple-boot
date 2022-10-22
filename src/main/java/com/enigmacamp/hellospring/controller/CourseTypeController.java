@@ -8,6 +8,7 @@ import com.enigmacamp.hellospring.repository.projection.CourseTypeView;
 import com.enigmacamp.hellospring.service.CourseTypeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@Profile("api")
 @RestController
 @RequestMapping("/course-types")
 @Validated // Kalo ada pathVariable/RequestParameter validation

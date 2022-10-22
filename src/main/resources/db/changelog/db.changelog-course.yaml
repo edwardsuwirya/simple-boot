@@ -1,0 +1,98 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-courseType
+      author: edo
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: mst_course_type
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: course_type_pkey
+                  name: course_type_id
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type_name
+                  type: VARCHAR(150)
+            tableName: mst_course_type
+  - changeSet:
+      id: create-table-courseInfo
+      author: edo
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: mst_course_info
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: course_info_pkey
+                  name: course_info_id
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: duration
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: level
+                  type: VARCHAR(10)
+            tableName: mst_course_info
+  - changeSet:
+      id: create-table-course
+      author: edo
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: mst_course
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: course_pkey
+                  name: course_id
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: title
+                  type: VARCHAR(150)
+              - column:
+                  name: description
+                  type: VARCHAR(250)
+              - column:
+                  name: link
+                  type: VARCHAR(150)
+              - column:
+                  constraints:
+                    nullable: false
+                    foreignKeyName: course_courseType_fkey
+                    references: mst_course_type(course_type_id)
+                  name: course_type_id
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                    foreignKeyName: course_courseInfo_fkey
+                    references: mst_course_info(course_info_id)
+                  name: course_info_id
+                  type: VARCHAR(50)
+            tableName: mst_course

@@ -1,6 +1,7 @@
 package com.enigmacamp.hellospring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "mst_course_type")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CourseType {
     @Id
     @GeneratedValue(generator = "system-uuid")
