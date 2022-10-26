@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
@@ -20,13 +21,14 @@ import java.util.Set;
 public class ErrorController {
 
     @ExceptionHandler(EntityExistException.class)
-    ResponseEntity<ErrorResponse> handleEntityExistViolationException(EntityExistException exception) {
+    ResponseEntity<ErrorResponse> handleEntityExistViolationException(EntityExistException exception, HttpServletRequest request) {
         return ResponseEntity
                 .status(HttpStatus.UNPROCESSABLE_ENTITY)
                 .body(new ErrorResponse("X03", exception.getMessage()));
     }
+
     @ExceptionHandler(ConstraintViolationException.class)
-    ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException exception) {
+    ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException exception, HttpServletRequest request) {
         Set<ConstraintViolation<?>> violation = exception.getConstraintViolations();
         List<String> errors = new ArrayList<>();
         for (ConstraintViolation error : violation) {
@@ -39,7 +41,7 @@ public class ErrorController {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException exception
+            MethodArgumentNotValidException exception, HttpServletRequest request
     ) {
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
         List<String> errors = new ArrayList<>();
@@ -53,7 +55,7 @@ public class ErrorController {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorResponse> handleDataNotFoundException(
-            NotFoundException exception
+            NotFoundException exception, HttpServletRequest request
     ) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
@@ -62,7 +64,7 @@ public class ErrorController {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleAllException(
-            Exception exception
+            Exception exception, HttpServletRequest request
     ) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)

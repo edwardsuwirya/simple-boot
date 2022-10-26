@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5af5a58-8664-4879-a295-69f3ff128fa6" name="Changes" comment="Unit Testing">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/enigmacamp/hellospring/repository/CourseRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/course.sql" afterDir="false" />
+    <list default="true" id="e5af5a58-8664-4879-a295-69f3ff128fa6" name="Changes" comment="Unit Testing JPA">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/aspect/ControllerLoggingAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/aspect/Loggable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/aspect/ServiceLoggingAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/HelloSpringApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/HelloSpringApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/model/CourseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/model/CourseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/service/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/service/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="09-Specification" />
+        <entry key="$PROJECT_DIR$" value="10-Unit-Testing" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,14 +101,14 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.enigmacamp.hellospring.aspect" />
       <recent name="com.enigmacamp.hellospring.model.request" />
       <recent name="com.enigmacamp.hellospring.repository" />
       <recent name="com.enigmacamp.hellospring.service" />
       <recent name="com.enigmacamp.hellospring.controller" />
-      <recent name="com.enigmacamp.hellospring.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CourseRepositoryTest">
+  <component name="RunManager" selected="Maven.hello-spring-boot [spring-boot:run]">
     <configuration name="CourseControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hello-spring-boot" />
       <extension name="coverage">
@@ -119,22 +124,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseControllerTest.itShouldGetCourseWjenSearchDynamically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hello-spring-boot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.enigmacamp.hellospring.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.controller.CourseControllerTest" />
-      <option name="METHOD_NAME" value="itShouldGetCourseWjenSearchDynamically" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CourseRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hello-spring-boot" />
       <extension name="coverage">
@@ -146,22 +135,6 @@
       <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
       <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CourseRepositoryTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseRepositoryTest.itShouldReturnListCourseWhenFindAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hello-spring-boot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.enigmacamp.hellospring.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CourseRepositoryTest" />
-      <option name="METHOD_NAME" value="itShouldReturnListCourseWhenFindAll" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,6 +155,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CourseServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hello-spring-boot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.enigmacamp.hellospring.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.service" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.service.CourseServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseServiceImplTest.itShouldGetAllCourseList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hello-spring-boot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.enigmacamp.hellospring.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.service" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.service.CourseServiceImplTest" />
+      <option name="METHOD_NAME" value="itShouldGetAllCourseList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="hello-spring-boot [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -191,12 +195,12 @@
             <option name="environmentProperties">
               <map>
                 <entry key="API_PORT" value="8888" />
-                <entry key="DB_HOST" value="157.245.198.58" />
-                <entry key="DB_NAME" value="hello_db" />
-                <entry key="DB_PASSWORD" value="password" />
-                <entry key="DB_PORT" value="5430" />
-                <entry key="DB_USERNAME" value="hello" />
-                <entry key="spring_profiles_active" value="api" />
+                <entry key="DB_HOST" value="143.198.220.168" />
+                <entry key="DB_NAME" value="postgres" />
+                <entry key="DB_PASSWORD" value="EnigmaCamp-2022" />
+                <entry key="DB_PORT" value="5432" />
+                <entry key="DB_USERNAME" value="postgres" />
+                <entry key="PROFILE" value="prod" />
               </map>
             </option>
             <option name="jreName" value="#USE_PROJECT_JDK" />
@@ -240,13 +244,21 @@
       </extension>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.CourseControllerTest" />
+      <item itemvalue="JUnit.CourseRepositoryTest" />
+      <item itemvalue="JUnit.CourseRepositoryTest.itShouldReturnPageCourseWhenFindWithInfoAndType" />
+      <item itemvalue="JUnit.CourseServiceImplTest" />
+      <item itemvalue="JUnit.CourseServiceImplTest.itShouldGetAllCourseList" />
+      <item itemvalue="Maven.hello-spring-boot [spring-boot:run]" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CourseServiceImplTest.itShouldGetAllCourseList" />
+        <item itemvalue="JUnit.CourseControllerTest" />
+        <item itemvalue="JUnit.CourseServiceImplTest" />
         <item itemvalue="JUnit.CourseRepositoryTest" />
         <item itemvalue="JUnit.CourseRepositoryTest.itShouldReturnPageCourseWhenFindWithInfoAndType" />
-        <item itemvalue="JUnit.CourseRepositoryTest.itShouldReturnListCourseWhenFindAll" />
-        <item itemvalue="JUnit.CourseControllerTest" />
-        <item itemvalue="JUnit.CourseControllerTest.itShouldGetCourseWjenSearchDynamically" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +279,8 @@
       <workItem from="1666657437537" duration="12005000" />
       <workItem from="1666679494005" duration="1050000" />
       <workItem from="1666680794378" duration="219000" />
-      <workItem from="1666681046299" duration="5027000" />
+      <workItem from="1666681046299" duration="11769000" />
+      <workItem from="1666739158230" duration="15282000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Boot Hands On">
       <created>1666144778330</created>
@@ -353,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666681080861</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Unit Testing JPA">
+      <created>1666686577971</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666686577971</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,19 +403,20 @@
     <MESSAGE value="one-to-many and one-to-one" />
     <MESSAGE value="Entity Graph" />
     <MESSAGE value="Unit Testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unit Testing" />
+    <MESSAGE value="Unit Testing JPA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit Testing JPA" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/hello_spring_boot$CourseControllerTest.ic" NAME="CourseControllerTest Coverage Results" MODIFIED="1666673140783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/hello_spring_boot$CourseControllerTest.ic" NAME="CourseControllerTest Coverage Results" MODIFIED="1666690782016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.enigmacamp.hellospring.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/hello_spring_boot$CourseRepositoryTest.ic" NAME="CourseRepositoryTest Coverage Results" MODIFIED="1666686275439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.enigmacamp.hellospring.repository.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/hello_spring_boot$CourseServiceImplTest.ic" NAME="CourseServiceImplTest Coverage Results" MODIFIED="1666605537106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/hello_spring_boot$CourseServiceImplTest.ic" NAME="CourseServiceImplTest Coverage Results" MODIFIED="1666690695043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.enigmacamp.hellospring.service.*</FILTER>
     </SUITE>
   </component>

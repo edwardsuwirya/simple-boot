@@ -1,5 +1,6 @@
 package com.enigmacamp.hellospring.service;
 
+import com.enigmacamp.hellospring.aspect.Loggable;
 import com.enigmacamp.hellospring.exception.EntityExistException;
 import com.enigmacamp.hellospring.exception.NotFoundException;
 import com.enigmacamp.hellospring.model.Course;
@@ -12,7 +13,6 @@ import com.enigmacamp.hellospring.util.QueryOperator;
 import org.hibernate.cfg.NotYetImplementedException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,14 +21,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@Profile("api")
 public class CourseServiceImpl implements CourseService {
-
     private CourseRepository courseRepository;
     private CourseTypeRepository courseTypeRepository;
 
@@ -41,6 +38,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    @Loggable
     public Page<Course> list(Integer page, Integer size, String direction, String sortBy) {
         Sort sort = Sort.by(Sort.Direction.valueOf(direction), sortBy);
         Pageable pageable = PageRequest.of((page - 1), size, sort);
@@ -55,13 +53,13 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    @Loggable
     public Course create(Course course) {
         try {
             Optional<CourseType> courseType = courseTypeRepository.findById(course.getCourseType().getCourseTypeId());
             if (courseType.isEmpty()) {
                 throw new NotFoundException("No course type");
             }
-
             course.setCourseType(courseType.get());
             Course newCourse = courseRepository.save(course);
             return newCourse;
