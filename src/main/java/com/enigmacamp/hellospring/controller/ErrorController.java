@@ -2,6 +2,7 @@ package com.enigmacamp.hellospring.controller;
 
 import com.enigmacamp.hellospring.exception.EntityExistException;
 import com.enigmacamp.hellospring.exception.NotFoundException;
+import com.enigmacamp.hellospring.exception.UnauthorizedException;
 import com.enigmacamp.hellospring.model.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +51,7 @@ public class ErrorController {
         }
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse("X02", errors.toString()));
+                .body(new ErrorResponse("X04", errors.toString()));
     }
 
     @ExceptionHandler(NotFoundException.class)
@@ -60,6 +61,15 @@ public class ErrorController {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(new ErrorResponse("X01", exception.getMessage()));
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorizedException(
+            UnauthorizedException exception, HttpServletRequest request
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(new ErrorResponse("X05", exception.getMessage()));
     }
 
     @ExceptionHandler(Exception.class)
