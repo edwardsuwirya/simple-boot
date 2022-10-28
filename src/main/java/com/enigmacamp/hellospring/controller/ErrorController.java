@@ -3,6 +3,7 @@ package com.enigmacamp.hellospring.controller;
 import com.enigmacamp.hellospring.exception.EntityExistException;
 import com.enigmacamp.hellospring.exception.NotFoundException;
 import com.enigmacamp.hellospring.exception.UnauthorizedException;
+import com.enigmacamp.hellospring.exception.ValidationException;
 import com.enigmacamp.hellospring.model.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
@@ -20,6 +22,20 @@ import java.util.Set;
 
 @RestControllerAdvice
 public class ErrorController {
+
+    @ExceptionHandler(ValidationException.class)
+    ResponseEntity<ErrorResponse> handleValidationException(ValidationException exception, HttpServletRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new ErrorResponse("X07", exception.getMessage()));
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    ResponseEntity<ErrorResponse> handleEntityExistViolationException(MaxUploadSizeExceededException exception, HttpServletRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new ErrorResponse("X07", "File size is too big"));
+    }
 
     @ExceptionHandler(EntityExistException.class)
     ResponseEntity<ErrorResponse> handleEntityExistViolationException(EntityExistException exception, HttpServletRequest request) {
