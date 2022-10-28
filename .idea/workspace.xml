@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5af5a58-8664-4879-a295-69f3ff128fa6" name="Changes" comment="REST Template">
+    <list default="true" id="e5af5a58-8664-4879-a295-69f3ff128fa6" name="Changes" comment="REST Template timeout setting">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/enigmacamp/hellospring/repository/CoursePaymentRepositoryImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/configuration/HelloSpringConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/configuration/HelloSpringConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/CoursePaymentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/CoursePaymentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/exception/RestTemplateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/exception/RestTemplateException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -69,6 +69,8 @@
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "dart.analysis.tool.window.visible": "false",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "/Users/edwardsuwirya/Projects/Java/hello-spring-boot",
@@ -94,6 +96,12 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.enigmacamp.hellospring.repository" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.enigmacamp.hellospring.exception" />
       <recent name="com.enigmacamp.hellospring.repository" />
@@ -102,23 +110,8 @@
       <recent name="com.enigmacamp.hellospring.aspect" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.hello-spring-boot [spring-boot:run]">
-    <configuration name="CourseControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hello-spring-boot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.enigmacamp.hellospring.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.controller.CourseControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponse4xxOr5xx">
+    <configuration name="CoursePaymentRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hello-spring-boot" />
       <extension name="coverage">
         <pattern>
@@ -127,13 +120,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CourseRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CoursePaymentRepositoryImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseRepositoryTest.itShouldReturnPageCourseWhenFindWithInfoAndType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponse4xxOr5xx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hello-spring-boot" />
       <extension name="coverage">
         <pattern>
@@ -142,39 +135,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CourseRepositoryTest" />
-      <option name="METHOD_NAME" value="itShouldReturnPageCourseWhenFindWithInfoAndType" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CoursePaymentRepositoryImplTest" />
+      <option name="METHOD_NAME" value="itThrowErrorWhenPaymentResponse4xxOr5xx" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponseFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hello-spring-boot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.enigmacamp.hellospring.service.*" />
+          <option name="PATTERN" value="com.enigmacamp.hellospring.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.service" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.service.CourseServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CoursePaymentRepositoryImplTest" />
+      <option name="METHOD_NAME" value="itThrowErrorWhenPaymentResponseFalse" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseServiceImplTest.itShouldGetAllCourseList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentServiceTimeout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hello-spring-boot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.enigmacamp.hellospring.service.*" />
+          <option name="PATTERN" value="com.enigmacamp.hellospring.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.service" />
-      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.service.CourseServiceImplTest" />
-      <option name="METHOD_NAME" value="itShouldGetAllCourseList" />
+      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CoursePaymentRepositoryImplTest" />
+      <option name="METHOD_NAME" value="itThrowErrorWhenPaymentServiceTimeout" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoursePaymentRepositoryImplTest.itshouldSuccessPayment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hello-spring-boot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.enigmacamp.hellospring.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.enigmacamp.hellospring.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.enigmacamp.hellospring.repository.CoursePaymentRepositoryImplTest" />
+      <option name="METHOD_NAME" value="itshouldSuccessPayment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -243,20 +253,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.CourseControllerTest" />
-      <item itemvalue="JUnit.CourseRepositoryTest" />
-      <item itemvalue="JUnit.CourseRepositoryTest.itShouldReturnPageCourseWhenFindWithInfoAndType" />
-      <item itemvalue="JUnit.CourseServiceImplTest" />
-      <item itemvalue="JUnit.CourseServiceImplTest.itShouldGetAllCourseList" />
+      <item itemvalue="JUnit.CoursePaymentRepositoryImplTest" />
+      <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponse4xxOr5xx" />
+      <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponseFalse" />
+      <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentServiceTimeout" />
+      <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itshouldSuccessPayment" />
       <item itemvalue="Maven.hello-spring-boot [spring-boot:run]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CourseServiceImplTest.itShouldGetAllCourseList" />
-        <item itemvalue="JUnit.CourseControllerTest" />
-        <item itemvalue="JUnit.CourseServiceImplTest" />
-        <item itemvalue="JUnit.CourseRepositoryTest" />
-        <item itemvalue="JUnit.CourseRepositoryTest.itShouldReturnPageCourseWhenFindWithInfoAndType" />
+        <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponse4xxOr5xx" />
+        <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentServiceTimeout" />
+        <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itThrowErrorWhenPaymentResponseFalse" />
+        <item itemvalue="JUnit.CoursePaymentRepositoryImplTest" />
+        <item itemvalue="JUnit.CoursePaymentRepositoryImplTest.itshouldSuccessPayment" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +290,7 @@
       <workItem from="1666681046299" duration="11769000" />
       <workItem from="1666739158230" duration="16732000" />
       <workItem from="1666786399440" duration="5290000" />
-      <workItem from="1666916124240" duration="24657000" />
+      <workItem from="1666916124240" duration="31190000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Boot Hands On">
       <created>1666144778330</created>
@@ -401,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666950688043</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="REST Template timeout setting">
+      <created>1666952440169</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1666952440169</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +453,8 @@
     <MESSAGE value="Spring boot interceptor" />
     <MESSAGE value="Upload and download" />
     <MESSAGE value="REST Template" />
-    <option name="LAST_COMMIT_MESSAGE" value="REST Template" />
+    <MESSAGE value="REST Template timeout setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="REST Template timeout setting" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

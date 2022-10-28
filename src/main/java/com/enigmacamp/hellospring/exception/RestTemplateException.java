@@ -8,7 +8,7 @@ public class RestTemplateException extends RuntimeException {
             String serviceName,
             HttpStatus statusCode,
             String error) {
-        super(error + " at " + serviceName + " (" + statusCode + ")");
+        super(error + " at " + serviceName + " (" + statusCode.value() + ")");
 
     }
 
