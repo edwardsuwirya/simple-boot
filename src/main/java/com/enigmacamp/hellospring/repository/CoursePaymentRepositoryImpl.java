@@ -11,10 +11,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.SocketTimeoutException;
+
 @Repository
 public class CoursePaymentRepositoryImpl implements CoursePaymentRepository {
 
-    @Value("${payment.service}")
+    @Value("${service.paymentUrl}")
     String paymentServiceUrl;
 
     private RestTemplate restTemplate;
@@ -33,6 +35,9 @@ public class CoursePaymentRepositoryImpl implements CoursePaymentRepository {
             }
             return response.getBody();
         } catch (RestClientException e) {
+            if (e.getCause() instanceof SocketTimeoutException) {
+                throw new RestTemplateException(paymentServiceUrl, HttpStatus.SERVICE_UNAVAILABLE, "Service time out");
+            }
             throw new RestTemplateException(paymentServiceUrl, HttpStatus.SERVICE_UNAVAILABLE, "Service is Down");
         } catch (RestTemplateException e) {
             throw new RestTemplateException(paymentServiceUrl, HttpStatus.SERVICE_UNAVAILABLE, "Service is Down");
