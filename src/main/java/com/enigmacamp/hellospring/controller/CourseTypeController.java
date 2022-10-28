@@ -20,6 +20,8 @@ import javax.validation.Valid;
 @RequestMapping("/course-types")
 @Validated // Kalo ada pathVariable/RequestParameter validation
 public class CourseTypeController {
+
+
     @Autowired
     CourseTypeService courseTypeService;
     @Autowired

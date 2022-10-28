@@ -1,9 +1,6 @@
 package com.enigmacamp.hellospring.controller;
 
-import com.enigmacamp.hellospring.exception.EntityExistException;
-import com.enigmacamp.hellospring.exception.NotFoundException;
-import com.enigmacamp.hellospring.exception.UnauthorizedException;
-import com.enigmacamp.hellospring.exception.ValidationException;
+import com.enigmacamp.hellospring.exception.*;
 import com.enigmacamp.hellospring.model.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +19,13 @@ import java.util.Set;
 
 @RestControllerAdvice
 public class ErrorController {
+
+    @ExceptionHandler(RestTemplateException.class)
+    ResponseEntity<ErrorResponse> restTemplateException(RestTemplateException exception, HttpServletRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new ErrorResponse("X07", exception.getMessage()));
+    }
 
     @ExceptionHandler(ValidationException.class)
     ResponseEntity<ErrorResponse> handleValidationException(ValidationException exception, HttpServletRequest request) {

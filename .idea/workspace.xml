@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5af5a58-8664-4879-a295-69f3ff128fa6" name="Changes" comment="Spring boot interceptor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/CourseUploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/exception/ValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/model/request/FormDataWithFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/FileRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/FileSystemRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/service/CourseUploadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/service/CourseUploadServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/util/validation/FileTypeValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/util/validation/ValidImage.java" afterDir="false" />
+    <list default="true" id="e5af5a58-8664-4879-a295-69f3ff128fa6" name="Changes" comment="Upload and download">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/CoursePaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/exception/RestTemplateException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/model/request/CoursePaymentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/model/response/CoursePaymentResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/CoursePaymentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/repository/CoursePaymentRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/service/CoursePaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/service/CoursePaymentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/configuration/HelloSpringConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/configuration/HelloSpringConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/CourseTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/CourseTypeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/hellospring/controller/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ValidationMessages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ValidationMessages.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="12-Interceptor" />
+        <entry key="$PROJECT_DIR$" value="13-Upload-Download" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,10 +104,10 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.enigmacamp.hellospring.exception" />
+      <recent name="com.enigmacamp.hellospring.repository" />
       <recent name="com.enigmacamp.hellospring.util.validation" />
       <recent name="com.enigmacamp.hellospring.controller.interceptor" />
       <recent name="com.enigmacamp.hellospring.aspect" />
-      <recent name="com.enigmacamp.hellospring.model.request" />
     </key>
   </component>
   <component name="RunManager" selected="Maven.hello-spring-boot [spring-boot:run]">
@@ -203,6 +203,7 @@
                 <entry key="DB_PORT" value="5432" />
                 <entry key="DB_USERNAME" value="enigma" />
                 <entry key="FILE_PATH" value="/tmp" />
+                <entry key="PAYMENT_SVC" value="http://localhost:3002/payment" />
                 <entry key="PROFILE" value="prod" />
               </map>
             </option>
@@ -285,7 +286,7 @@
       <workItem from="1666681046299" duration="11769000" />
       <workItem from="1666739158230" duration="16732000" />
       <workItem from="1666786399440" duration="5290000" />
-      <workItem from="1666916124240" duration="10954000" />
+      <workItem from="1666916124240" duration="22883000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Boot Hands On">
       <created>1666144778330</created>
@@ -392,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666860408069</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Upload and download">
+      <created>1666928559044</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1666928559044</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +433,8 @@
     <MESSAGE value="Unit Testing JPA" />
     <MESSAGE value="Spring AOP with Logging use case" />
     <MESSAGE value="Spring boot interceptor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring boot interceptor" />
+    <MESSAGE value="Upload and download" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload and download" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
